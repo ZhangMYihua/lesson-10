@@ -4,7 +4,12 @@
   display: flex;
   justify-content: space-between;
   margin-bottom: 25px;
-
+  
+  .user-profile-picture{
+    border-radius: 50px;
+    height: 40px;
+    padding: 4px;
+  }
   .logo-container {
     height: 100%;
     width: 70px;
@@ -19,8 +24,18 @@
     justify-content: flex-end;
 
     .option {
-      padding: 10px 15px;
+      display: flex;
+      align-items:center;
+      justify-content: center;
+      padding: 10px 20px;
       cursor: pointer;
+      height: 50px;
+      &:hover{
+        color: white;
+        background-color: rgb(6, 0, 34);
+        cursor: pointer;
+        transition-duration: 300ms;
+      }
     }
   }
 }
