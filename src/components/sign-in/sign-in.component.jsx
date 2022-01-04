@@ -1,16 +1,18 @@
 import React from 'react';
-
+import { withRouter } from 'react-router';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
+
 
 import { signInWithGoogle } from '../../firebase/firebase.utils';
 
 import './sign-in.styles.scss';
 
+import image from "../../assets/google.png";
+
 class SignIn extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       email: '',
       password: ''
@@ -19,8 +21,8 @@ class SignIn extends React.Component {
 
   handleSubmit = event => {
     event.preventDefault();
-
     this.setState({ email: '', password: '' });
+
   };
 
   handleChange = event => {
@@ -54,9 +56,11 @@ class SignIn extends React.Component {
           />
           <div className='buttons'>
             <CustomButton type='submit'> Sign in </CustomButton>
-            <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
+            <div className="or" ><h2>OR</h2></div>
+            <div  onClick={signInWithGoogle}><img className="google" src={image} alt="google" /></div>
+            {/* <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
               Sign in with Google
-            </CustomButton>
+            </CustomButton> */}
           </div>
         </form>
       </div>
@@ -64,4 +68,4 @@ class SignIn extends React.Component {
   }
 }
 
-export default SignIn;
+export default withRouter(SignIn);
